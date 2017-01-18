@@ -13,10 +13,10 @@ namespace TreehouseDefense
 
         public bool OnMap(Point point)
         {
-            return point.XCoordinate >= 0 && 
-                   point.XCoordinate < Width && 
-                   point.YCoordinate >= 0 && 
-                   point.YCoordinate < Height; 
+            return point.X >= 0 && 
+                   point.X < Width && 
+                   point.Y >= 0 && 
+                   point.Y < Height; 
         }
     }
 }
