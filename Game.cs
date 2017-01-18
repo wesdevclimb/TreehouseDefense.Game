@@ -1,3 +1,6 @@
+using System;
+using System.Diagnostics;
+
 namespace TreehouseDefense
 {
     class Game
@@ -6,7 +9,13 @@ namespace TreehouseDefense
         {
             Map map = new Map(8, 5);
 
-            int area = map.Width * map.Height;
+            Point point = new Point(4, 2);
+            bool isOnMap = map.OnMap(point);
+            Debug.WriteLine(isOnMap);
+
+            point = new Point(8, 5);
+            isOnMap = map.OnMap(point);
+            Debug.WriteLine(isOnMap);
         }
     }
 }
