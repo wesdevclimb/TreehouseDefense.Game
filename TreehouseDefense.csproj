@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MapLocation.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Invader.cs" />
