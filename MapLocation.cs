@@ -12,7 +12,7 @@ namespace TreehouseDefense
         {
             if (!map.OnMap(this))
             {
-                throw new Exception();
+                throw new OutOfBoundsException("(" + x + ", " + y + ") is not within the boundaries of the map.");
             }
         }
     }
