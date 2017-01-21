@@ -8,14 +8,14 @@ namespace TreehouseDefense
         public static void Main()
         {
             Map map = new Map(8, 5);
-
-            Point point = new Point(4, 2);
-            bool isOnMap = map.OnMap(point);
-            Debug.WriteLine(isOnMap);
-
-            point = new Point(8, 5);
-            isOnMap = map.OnMap(point);
-            Debug.WriteLine(isOnMap);
+            try
+            {
+                MapLocation mapLocation = new MapLocation(8, 5, map);
+            }
+            catch(Exception)
+            {
+                Debug.WriteLine("That ain't on the map, bro.");
+            }
         }
     }
 }
