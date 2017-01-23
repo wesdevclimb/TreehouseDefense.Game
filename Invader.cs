@@ -9,6 +9,12 @@ namespace TreehouseDefense
         public MapLocation Location => _path.GetLocationAt(_pathStep);
 
         public int Health { get; private set; } = 2;
+
+        public bool HasScored { get { return _pathStep >= _path.Length; } }
+        
+        public bool IsNeutralized { get { return Health <= 0; } }
+        
+        public bool IsActive { get { return !(IsNeutralized || HasScored); } }
                            
         public Invader(Path path)
         {
