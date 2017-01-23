@@ -23,11 +23,14 @@ namespace TreehouseDefense
                     }
                 );
 
-                MapLocation location = path.GetLocationAt(9);
+                MapLocation location = path.GetLocationAt(6);
                 if(location != null)
                 {
                     Debug.WriteLine(location.X + ", " + location.Y);
                 }
+
+                MapLocation towerLocation = new MapLocation(4, 3, map);
+                Tower tower = new Tower(towerLocation, path);
             }
             catch (OutOfBoundsException ex)
             {

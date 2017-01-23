@@ -18,5 +18,10 @@ namespace TreehouseDefense
         {
             return (pathStep < _path.Length) ? _path[pathStep] : null;
         }
+
+        public bool OnPath(MapLocation location)
+        {
+            return location.Y == _path[0].Y;
+        }
     }
 }
