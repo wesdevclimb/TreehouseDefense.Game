@@ -8,7 +8,7 @@ namespace TreehouseDefense
 
         public MapLocation Location => _path.GetLocationAt(_pathStep);
 
-        public int Health { get; private set; } = 2;
+        public int Health { get; private set; } = 3;
 
         public bool HasScored { get { return _pathStep >= _path.Length; } }
         

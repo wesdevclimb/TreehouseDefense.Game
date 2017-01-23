@@ -1,3 +1,6 @@
+using System;
+using System.Diagnostics;
+
 namespace TreehouseDefense
 {
     class Tower
@@ -6,6 +9,9 @@ namespace TreehouseDefense
 
         private const int _range = 1;
         private const int _damage = 1;
+        private const double _accuracy = 0.75;
+
+        private static readonly System.Random _random = new System.Random();
 
         public Tower(MapLocation location, Path path)
         {
@@ -19,13 +25,30 @@ namespace TreehouseDefense
             }
         }
 
+        public bool IsSuccessfulShot()
+        {
+            return _random.NextDouble() < _accuracy;
+        }
+
         public void FireOnInvaders(Invader[] invaders)
         {
             foreach(Invader invader in invaders)
             {
                 if(invader.IsActive && _location.InRangeOf(invader.Location, _range))
                 {
-                    invader.DecreaseHealth(_damage);
+                    if(IsSuccessfulShot())
+                    {
+                        invader.DecreaseHealth(_damage);
+                        Debug.WriteLine("Invader successfuly hit!");
+                        if(invader.IsNeutralized)
+                        {
+                            Debug.WriteLine("Invader down!");
+                        }
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Missed the invader!");
+                    }
                     break;
                 }
             }
