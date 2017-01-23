@@ -4,6 +4,9 @@ namespace TreehouseDefense
     {
         private readonly MapLocation _location;
 
+        private const int _range = 1;
+        private const int _damage = 1;
+
         public Tower(MapLocation location, Path path)
         {
             if(!path.OnPath(location))
@@ -18,14 +21,13 @@ namespace TreehouseDefense
 
         public void FireOnInvaders(Invader[] invaders)
         {
-            int index = 0;
-
-            while(index < invaders.Length)
+            foreach(Invader invader in invaders)
             {
-                Invader invader = invaders[index];
-                //do stuff with invaders
-
-                index++;
+                if(invader.IsActive && _location.InRangeOf(invader.Location, _range))
+                {
+                    invader.DecreaseHealth(_damage);
+                    break;
+                }
             }
         }
     }
